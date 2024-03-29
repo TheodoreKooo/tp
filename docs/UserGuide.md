@@ -131,9 +131,29 @@ Format: `find-name KEYWORD [MORE_KEYWORDS]`
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
 Examples:
-* `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
+* `find-name John` returns `john` and `John Doe`
+* `find-name alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
+
+### Locating clients by tag: `find-tag`
+
+Finds clients whose tags contain any of the given keywords.
+
+Format: `find-tag KEYWORD [MORE_KEYWORDS]`
+
+* The search is case-insensitive. e.g. `disabled` will match `Disabled`
+* The order of the keywords does not matter e.g. `disabed risky` will match `risky disabled`
+* Only the Tag is searched.
+* Only full words will be matched e.g. `dis` will not match `disabled`
+* Clients matching at least one keyword will be returned (i.e. `OR` search) 
+  e.g. `disabled risky` will return `disabled diabetic`, `risky diabetic`
+
+Examples:
+* `find-tag disabled` returns all clients who are tagged `disabled`
+  ![result for 'find-tag disabled'](images/FindTagDisabledResult.png)
+* `find-tag disabled schizophrenic` will return `disabled`, `Schizophrenic`
+  ![result for 'find-tag disabled schizophrenic'](images/FindTagDisabledSchizophrenicResult.png)
+
 
 ### Deleting a client : `del`
 
